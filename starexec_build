@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#cd sources/simp
+make
+cp PaKis ./bin/PaKis
+

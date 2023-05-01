@@ -1,0 +1,12 @@
+FROM pakis-base AS builder
+USER root
+
+
+###################
+FROM satcomp-base:leader AS pakis_liaison
+WORKDIR /
+# Copy pakis and solver scripts
+COPY --from=builder --chown=ecs-user /pakis/bin/ /competition/
+USER ecs-user
+RUN chmod +x /competition/PaKis
+RUN chmod +x /competition/solver

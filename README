@@ -1,0 +1,76 @@
+##########################################################
+#####        		PaKis		             #####
+##########################################################
+
+Authors: Rodrigue Konan Tchinda, Clémentin Tayou Djamegni
+	  University of Dschang, Cameroon & University of Bamenda, Cameroon
+
+===== To compile the project =====
+
+- In the PaKis home directory use 'make' to compile.
+
+- In the PaKis home directory use 'make clean' to clean.
+
+
+===== To run the solvers =====
+
+ - PaKis :
+   ./PaKis dimacs_filename
+
+==== Configuration submitted to the parallel Track of the 2021 SAT Competition
+   ./PaKis -c=24 -max-memory=256 dimacs_filename
+
+
+
+
+
+##########################################################
+##### PaInleSS: A Framework for Parallel SAT Solving #####
+##########################################################
+
+Authors:  Ludovic LE FRIOUX, Hakan METIN
+Contacts: ludovic@lrde.epita.fr, hakan.metin@lip6.fr
+
+
+===== Content =====
+
+- painless-src:
+   Contains the code of the framework.
+   - clauses:
+      Contains the code to manage shared clauses.
+   - working:
+      Code links to the worker organization.
+   - sharing:
+      Code links to the learnt clause sharing management.
+   - solvers:
+      Contains wrapper for the sequential solvers.
+   - utils:
+      Contains code for clauses management. But also useful data structures.
+
+- mapleCOMSPS:
+   Contains the code of MapleCOMSPS from the SAT Competition 17 with some little
+   changes.
+
+- cosy:
+  Contains the code of dynamic symmetry breaking library called Cosy.
+  - third_party/automorphism/bliss:
+    Contains code of bliss automorphism tool.
+  - include:
+    Contains header files of the library.
+  - src:
+    Contains implementation of the library.
+
+===== To compile the project =====
+
+- In the painless-mcomsps home directory use 'make' to compile.
+
+- In the painless-mcomsps home directory use 'make clean' to clean.
+
+
+===== To run the solvers =====
+
+ - painless-mcomsps :
+   ./painless-mcomsps dimacs_filename
+
+ - painless-mcomsps-sym :
+   ./painless-mcomsps -symmetry dimacs_filename
