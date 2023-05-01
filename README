@@ -1,5 +1,5 @@
 ##########################################################
-#####        		PaKis		             #####
+#####        		PaKisInc	             #####
 ##########################################################
 
 Authors: Rodrigue Konan Tchinda, Clémentin Tayou Djamegni
@@ -7,19 +7,15 @@ Authors: Rodrigue Konan Tchinda, Clémentin Tayou Djamegni
 
 ===== To compile the project =====
 
-- In the PaKis home directory use 'make' to compile.
+- In the PaKisInc home directory use 'make' to compile.
 
-- In the PaKis home directory use 'make clean' to clean.
+- In the PaKisInc home directory use 'make clean' to clean.
 
 
 ===== To run the solvers =====
 
- - PaKis :
+ - PaKisInc :
    ./PaKis dimacs_filename
-
-==== Configuration submitted to the parallel Track of the 2021 SAT Competition
-   ./PaKis -c=24 -max-memory=256 dimacs_filename
-
 
 
 
