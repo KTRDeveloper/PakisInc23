@@ -56,7 +56,7 @@ class Runner:
     def get_command(self, input_json):
         formula_file = input_json.get("formula_file")
 
-        run_list = ["/competition/PaKis", "-c=12", "-max-memory=250"]
+        run_list = ["/competition/run_pakis"]
         run_list.append(formula_file)
 
         return run_list
@@ -70,14 +70,14 @@ class PakisParser:
         """
         with open(output_file) as f:
             raw_logs = f.read()
-            if "answer = UNSAT" in raw_logs:
-                return "UNSATISFIABLE"
-            elif "answer = SAT" in raw_logs:
-                return "SATISFIABLE"
+            if "s UNSATISFIABLE" in raw_logs:
+                return 20
+            elif "s SATISFIABLE" in raw_logs:
+                return 10
             elif "UNKNOWN" in raw_logs:
-                return "UNKNOWN"
+                return 0
             else:
-                return "ERROR"
+                return 1
 
 if __name__ == "__main__":
     request_directory = sys.argv[1]
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     result = PakisParser.get_result(output["stdout"])
     logging.info(f"RESULT: {result}")
     solver_output = {
-        "return_code": output["return_code"],
+        "return_code": result,
         "artifacts": {
             "stdout_path": output["stdout"],
             "stderr_path": output["stderr"]

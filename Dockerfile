@@ -1,4 +1,4 @@
-FROM satcomp-common-base-image as builder
+FROM satcomp-infrastructure:common as builder
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y git gcc g++ make
 RUN apt-get install unzip
@@ -19,11 +19,13 @@ RUN cp PaKis ./bin/PaKis
 
 
 ###################
-FROM satcomp-base:leader AS pakis_liaison
+FROM satcomp-infrastructure:leader AS pakis_liaison
 WORKDIR /
 # Copy pakis and solver scripts
 COPY --from=builder --chown=ecs-user /pakis/bin/ /competition/
+COPY --from=builder --chown=ecs-user /pakis/solver /competition/
 USER ecs-user
 RUN chmod +x /competition/PaKis
 RUN chmod +x /competition/solver
+RUN chmod +x /competition/run_pakis
 

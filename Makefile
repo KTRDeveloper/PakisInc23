@@ -3,7 +3,7 @@ all:
 	###               kissat_mab                   ###
 	##################################################
 	chmod a+x kissat_inc/configure kissat_inc/scripts/*.sh
-	cd kissat_inc && ./configure --quiet --compact --no-proofs
+	cd kissat_inc && ./configure --no-statistics --compact --no-proofs
 	+ $(MAKE) -C kissat_inc
 
 	##################################################
